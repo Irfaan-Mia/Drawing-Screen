@@ -2,9 +2,9 @@
   "name": "drawing-screen",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-  
+    "test": "jest --coverage"
   },
   "author": "",
   "license": "ISC",
