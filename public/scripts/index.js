@@ -34,7 +34,7 @@ function drawStudent(id) {
         fetch(`/class/api/draw/${id}`, { method: 'POST' })
         .then(response => {
             if (response.ok) {
-                window.location.href = 'class/draw';
+                window.location.href = 'class/drawbyIrfaan';
             } else {
                 throw new Error('Error: ' + response.statusText);
             }
@@ -52,6 +52,11 @@ else { throw 'Failed to load classlist: response code invalid!' }
 .then(function (data) { // Display the JSON data appropriately
 // Retrieve the classList outer element
 const classList = document.getElementById('classList')
+
+//Storing the data locally 
+window.localStorage.setItem('students', data);
+console.log(window.localStorage.student);
+
 // Iterate through all students
 data.forEach(function (student,id) {
 // Create a new list entry
@@ -94,6 +99,9 @@ buttonGroup.appendChild(drawbutton);
 
 li.appendChild(buttonGroup);
 classList.appendChild(li)
+
+window.localStorage.setItem('student', student);
+console.log(window.localStorage.getItem('student'));
 })
 })
 .catch(function (e) { // Process error for request

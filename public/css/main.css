@@ -1,20 +1,56 @@
 body {
     background-color: powderblue;
     }
-    .button {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-    }
-    #student {
-    color: red;
-    border: 5px solid black;
+
+    canvas{
+        box-shadow: -3px 2px 9px 6px black;
+        cursor: black;
+        background-color: white;
+        border: 20px black;
     }
     
+    .tools{
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        margin-top: 15px;
+        margin: 0 10px;
+    }
+
+    .tools .color-field{
+        height: 40px; 
+        width: 40px; 
+        min-height: 40px; 
+        min-width: 40px; 
+        cursor: pointer;
+        display: inline-block;
+        box-sizing: border-box;
+        border-radius: 30%;
+        border: 2px solid black;
+        align-self: center;
+        margin: 0 10px;
+        background-blend-mode: multiply;
+    }
+
+    .tools .button{
+        align-self: center;
+        width: 100px;
+        height: 40px;
+        border: 2px solid black;
+        cursor: pointer;
+        color: black;
+        font-weight: bold;
+        margin: 0 15px;
+        text-align: center;
+    }
+    
+    .color-picker{
+        align-self: center;
+        margin: 0 10px;
+        height: 50px;
+    }
+
+    .pen-range{
+        align-self: center;
+        margin: 0 10px;
+    }

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/cdn/css/main.css">
+    <title id = "titleDrawing">Miscommunication Mayhem Drawing:</title>
+    <style>
+        .center-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <div class="center-screen">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-md-8" id="DrawingCanvas">
+                    <section> 
+                        <h1 class="text-center">Canvas</h1>
+                        <canvas id="drawingCanvas"></canvas>
+                        <div class = 'tools'> 
+                            <button  id="submitCanvas" class="button">Submit</button>
+                            <button onClick = "clearCanvas()" id="clearCanvas" class="button">Clear</button>
+                            <button onClick = "undoDrawing()" id="undo" class="button">Undo</button>
+                            <button onClick = "eraser()" id="undo" class="button">Eraser</button>
+                            <button onClick = "sprayCan()" id="sprayCan" class="button">SprayCan</button>
+
+                            <div onClick = "changeColor(this)" class = 'color-field', style = 'background: black;'></div>
+                            <div onClick = "changeColor(this)" class = 'color-field', style = 'background: red;'></div>
+                            <div onClick = "changeColor(this)" class = 'color-field', style = 'background: blue;'> </div>
+                            <div onClick = "changeColor(this)" class = 'color-field', style = 'background: purple;'> </div>
+                            <div onClick = "changeColor(this)" class = 'color-field', style = 'background: orange;'> </div>
+
+                            <input onInput = "ctx.strokeStyle = this.value" type = 'color' class = 'color-picker'> 
+                            <input onInput = "ctx.lineWidth = this.value" type = 'range' min = '1' max = '50' class = 'pen-range' id = "pen-range" value = 5> 
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    </div>
+
+    <script src="/cdn/scripts/drawbyIrfaan.js"></script>
+</body>
+</html>

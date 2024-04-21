@@ -21,6 +21,13 @@ router.get('/edit', function (req, res) {
     router.get('/draw', function (req, res) {
         res.sendFile(path.join(__dirname, 'views', 'draw.html'))
         })
+
+
+        router.get('/drawbyIrfaan', function (req, res) {
+            res.sendFile(path.join(__dirname, 'views', 'drawbyIrfaan.html'))
+            })
+
+
     module.exports = router
 
 // RESTful api
