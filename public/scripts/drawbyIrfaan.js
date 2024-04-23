@@ -1,10 +1,8 @@
 const canvas = document.getElementById('drawingCanvas');
 
-console.log(canvas.offsetHeight)
-//set the heigh and width of the canvas object 
-//Ajust the sizing as wanted but currently it will change when the size of the page changes
-canvas.width = window.innerWidth;  
-canvas.height = window.innerHeight; 
+// Adjust size to css values for size of the view port
+canvas.width = canvas.offsetWidth;  
+canvas.height = canvas.offsetHeight; 
 
 //Require setting the context 
 var ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -35,14 +33,10 @@ canvas.addEventListener('mousedown', (event)=>{
     rect = canvas.getBoundingClientRect();
     isDrawing = true;
     ctx.beginPath();
-
-    // Calculate the scale factor
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
     
     // Adjust the mouse position by the scale factor
-    const x = (event.clientX - rect.left) * scaleX;
-    const y = (event.clientY - rect.top) * scaleY;
+    const x = (event.clientX - rect.left) 
+    const y = (event.clientY - rect.top) 
     console.log(event.clientX + " " + event.clientY);
     console.log(x + " " + y);
     ctx.moveTo(x,y);
@@ -92,8 +86,8 @@ function draw(event)
     const scaleY = canvas.height / rect.height;
         
     // Adjust the mouse position by the scale factor
-    const x = (event.clientX - rect.left) * scaleX;
-    const y = (event.clientY - rect.top) * scaleY;
+    const x = (event.clientX - rect.left) 
+    const y = (event.clientY - rect.top)
     ctx.lineTo(x,y);
     ctx.stroke();
 };
