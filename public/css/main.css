@@ -10,15 +10,25 @@ body {
     background: linear-gradient(45deg, var(--gray-light), var(--gray-dark));
     margin: 0;
     padding: 0;
-    max-height: 100vh; 
+    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* Style for the centered box */
-.drawingCanvas {
+.canvas-container {
     border-radius: 8px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    width: 60%; /* Adjust as needed */
-    height: 60%; /* Adjust as needed */
-    display: block; /* Required for margin: auto to work */
-    margin: 10% auto; /* 10% margin at the top and bottom, auto on the sides */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5vh auto; /* 10% margin at the top and bottom, auto on the sides */
+}
+
+.canvas-container .titleDrawing{
+    margin: 5vh auto; /* 10% margin at the top and bottom, auto on the sides */
+}
+.canvas-container .drawingCanvas {
+    width: 60vw; /* Adjust as needed */
+    height: 70vh; /* Adjust as needed */
 }
