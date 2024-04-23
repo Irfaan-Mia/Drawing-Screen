@@ -7,9 +7,73 @@
     <title id = "titleDrawing">Miscommunication Mayhem Drawing:</title>
 </head>
 <body class="body">
+    <h1 id = "title-drawing">Miscommunication Mayhem</h1>
     <div class = 'canvas-container'>
-        <h1 id = "title-drawing">Miscommunication Mayhem</h1>
-        <canvas class = 'drawing-canvas' id="drawing-canvas"></canvas>
+        <section class = 'tool-box'>
+            <div class = 'row'>
+                <label class = 'title'>Tool Selection:</label>
+                <ul class = 'options'>
+                    <li class = 'tool-option'>
+                        <img class = "svg" src="../cdn/images/pen.svg" alt="">
+                        <span>Pen</span>
+                    </li>
+                    <li class = 'tool-option'>
+                        <img class = "svg" src="../cdn/images/eraser.svg" alt="">
+                        <span>Eraser</span>
+                    </li>
+                    <li class = 'tool-option'>
+                        <img class = "svg" src="../cdn/images/paint-format.svg" alt="">
+                        <span>Highlighter</span>
+                    </li>
+                    <li class = 'tool-option'>
+                        <img class = "svg" src="../cdn/images/magic-wand.svg" alt="">
+                        <span>SprayCan</span>
+                    </li>
+                    <label class = 'title'>Size Selection: </label>
+                    <li class = 'tool-option'>
+                        <input type = 'range' id = 'drawing-size-input' min = '1' max = '100' value = '5'>
+                    </li>
+                </ul>
+            </div>
+            <div class = 'row'>
+                <label class = 'title'>Shape selection:</label>
+                    <ul class = 'options'>
+                        <li class = 'shape-option'>
+                            <img class = "svg" src="../cdn/images/circle.svg" alt="">
+                            <span>Circle</span>
+                        </li>
+                        <li class = 'shape-option'>
+                            <img class = "svg" src="../cdn/images/rectangle.svg" alt="">
+                            <span>Rectangle</span>
+                        </li>
+                        <li class = 'shape-option'>
+                            <img class = "svg" src="../cdn/images/triangle.svg" alt="">
+                            <span>Triangle</span>
+                        </li>
+                    </ul>
+            </div>
+            <div class = 'row'>
+                <label class = 'tool-color'>Color Selection:</label>
+                <ul class = 'options'>
+                    <li class = 'color-option'>Black</li>
+                    <li class = 'color-option'>Red</li>
+                    <li class = 'color-option'>Blue</li>
+                    <li class = 'color-option'>Green</li>
+                    <lis class = 'color-option'>
+                        <input type = 'color' class = "color-option">
+                    </lis>
+                </ul>
+            </div>
+            <div class = 'row'>
+                <ul class = "btns">
+                    <button class = 'btn' id ='clear-canvas'>Clear</button>
+                    <button class = 'btn' id = 'undo-canvas'>Undo</button>
+                </ul>
+            </div>
+        </section>
+        <section class = 'drawing-board'>
+            <canvas class = 'drawing-canvas' id="drawing-canvas"></canvas>
+        </section>
     </div>
      
 

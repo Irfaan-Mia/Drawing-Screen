@@ -12,9 +12,16 @@ body {
     background: linear-gradient(45deg, var(--gray-light), var(--gray-dark));
     display: flex;
     flex-direction: column;
+    justify-content: center;
     margin: 0;
     min-height: 100vh;
     padding: 0;
+}
+
+/* The .title-drawing class applies styles to the title. */
+.title-drawing{
+    margin: 5vh auto;
+    justify-content: center;
 }
 
 /* The .canvas-container class is applied to the container that wraps the title and the canvas. */
@@ -22,18 +29,81 @@ body {
     align-items: center;
     border-radius: 8px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    gap: 1vw; 
     justify-content: center;
     margin: 5vh auto;
+    max-width: 150vh; 
 }
 
-/* The .title-drawing class applies styles to the title. */
-.canvas-container .title-drawing{
-    margin: 5vh auto;
+.tool-box{
+    background: white;
+    height: 70vh; 
+    width: 10vw;
+    flex: none; 
+    border-radius: 7px;
+    box-shadow: 0 0 2vh black;
+    flex-direction: column;
 }
+
+.tool-box .row{
+    margin-bottom: 0.1vh; /* This will add space below each .row */
+    margin-right: 1vw; /* This will add space to the right of each .row */
+    padding: 0.5vh; /* This will add space inside each .row */
+}
+
+ .row .options{
+    list-style: none;
+}
+
+.svg{
+    width: 1.5vw;
+    height:1.5vh; 
+}
+
+.btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    width: 5vw;
+    height: 3vh;
+}
+
+.tool-box .row .options .tool-option{
+    margin: 1.5vh auto; 
+    cursor: pointer;
+}
+
+.tool-option:is(:hover, .active) img{
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
+}
+.tool-box .row .options .shape-option{
+    margin: 1.5vh auto; 
+}
+
+.tool-box .row .options .tool-color{
+    margin: 1.5vh auto; 
+}
+
+.tool-box .row .options .color-option{
+    margin: 1.3vh auto; 
+}
+
+.tool-box .row .options .color-option{
+    margin: 1.3vh auto; 
+}
+
+.drawing-board{
+    flex-grow: 1; 
+}
+
 
 /* The .drawing-canvas class applies styles to the canvas. */
 .canvas-container .drawing-canvas {
     height: 70vh;
     width: 60vw;
+    border-radius: 7px;
+    background-color: black;
 }
