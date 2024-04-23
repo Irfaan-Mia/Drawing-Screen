@@ -39,12 +39,18 @@ body {
 
 .tool-box{
     background: white;
-    height: 70vh; 
-    width: 10vw;
+    height: 500px; /* Adjust as needed */
+    width: 200px; /* Adjust as needed */
     flex: none; 
     border-radius: 7px;
     box-shadow: 0 0 2vh black;
     flex-direction: column;
+}
+
+.tool-box .row{
+    margin-bottom: 10px; /* Adjust as needed */
+    margin-right: 10px; /* Adjust as needed */
+    padding: 5px; /* Adjust as needed */
 }
 
 .tool-box .row{
@@ -120,21 +126,7 @@ input[type='color'] {
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
 }
 
-.tool-box .row .options .shape-option{
-    margin: 1.5vh auto; 
-}
 
-.tool-box .row .options .tool-color{
-    margin: 1.5vh auto; 
-}
-
-.tool-box .row .options .color-option{
-    margin: 1.3vh auto; 
-}
-
-.tool-box .row .options .color-option{
-    margin: 1.3vh auto; 
-}
 
 .drawing-board{
     flex-grow: 1; 
