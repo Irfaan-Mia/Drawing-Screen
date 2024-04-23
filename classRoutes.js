@@ -18,8 +18,8 @@ router.get('/edit', function (req, res) {
     res.sendFile(path.join(__dirname, 'views', 'edit.html'))
     })
 
-        router.get('/drawbyIrfaan', function (req, res) {
-            res.sendFile(path.join(__dirname, 'views', 'drawbyIrfaan.html'))
+        router.get('/draw', function (req, res) {
+            res.sendFile(path.join(__dirname, 'views', 'draw.html'))
             })
 
 
