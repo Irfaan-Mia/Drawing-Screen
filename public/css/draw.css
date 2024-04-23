@@ -54,10 +54,16 @@ body {
     cursor: pointer;
 }
 
- .row .options{
+.row .options{
     list-style: none;
+    padding: 1em; /* Use em for padding */
 }
 
+@media (max-width: 600px) {
+    .row .options {
+        padding: 0.5em; /* Reduce padding at smaller screen sizes */
+    }
+}
 .svg{
     width: 1.5vw;
     height:1.5vh; 
@@ -108,9 +114,6 @@ input[type='color'] {
     cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
 }
 
-.tool-box .row .options .tool-option{
-    margin: 1.5vh auto; 
-}
 
 .tool-option:is(:hover, .active) img{
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
@@ -120,21 +123,7 @@ input[type='color'] {
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
 }
 
-.tool-box .row .options .shape-option{
-    margin: 1.5vh auto; 
-}
 
-.tool-box .row .options .tool-color{
-    margin: 1.5vh auto; 
-}
-
-.tool-box .row .options .color-option{
-    margin: 1.3vh auto; 
-}
-
-.tool-box .row .options .color-option{
-    margin: 1.3vh auto; 
-}
 
 .drawing-board{
     flex-grow: 1; 
