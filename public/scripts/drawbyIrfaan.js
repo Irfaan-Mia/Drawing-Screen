@@ -2,8 +2,8 @@ const canvas = document.getElementById('drawingCanvas');
 
 //set the heigh and width of the canvas object 
 //Ajust the sizing as wanted but currently it will change when the size of the page changes
-canvas.width = window.innerWidth - 1000; 
-canvas.height = window.innerHeight - 500; 
+canvas.width = window.innerWidth*0.8; 
+canvas.height = window.innerHeight*0.8; 
 
 //Require setting the context 
 var ctx = canvas.getContext('2d', { willReadFrequently: true });
