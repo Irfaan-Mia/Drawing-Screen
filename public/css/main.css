@@ -1,67 +1,24 @@
+/* Defining of gray color palette as constants */
+:root {
+    --gray-light: #f3f3f3;
+    --gray-dark: #dcdcdc;
+    --gray-button: #6c757d;
+}
+
+/* Set up of a dynamic gradient background of grays */
 body {
-    background-color: powderblue;
-    width: 100vw; 
-    height: 100vh; 
-    }
+    background: linear-gradient(45deg, var(--gray-light), var(--gray-dark));
+    margin: 0;
+    padding: 0;
+    max-height: 100vh; 
+}
 
-    .center-screen {
-        display: flex;
-        height: 100vh;
-        width: 100vw; 
-    }
-
-    canvas{
-        box-shadow: -3px 2px 9px 6px black;
-        cursor: black;
-        background-color: white;
-        border: 20px black;
-        width:80vw; 
-        height:80vh; 
-    }
-    
-    .tools{
-        display: flex;
-        justify-content: center;
-        flex-direction: row;
-        margin-top: 15px;
-        margin: 0 10px;
-        width: 60pw; 
-    }
-
-    .tools .color-field{
-        height: 40px; 
-        width: 40px; 
-        min-height: 40px; 
-        min-width: 40px; 
-        cursor: pointer;
-        display: inline-block;
-        box-sizing: border-box;
-        border-radius: 30%;
-        border: 2px solid black;
-        align-self: center;
-        margin: 0 10px;
-        background-blend-mode: multiply;
-    }
-
-    .tools .button{
-        align-self: center;
-        width: 100px;
-        height: 40px;
-        border: 2px solid black;
-        cursor: pointer;
-        color: black;
-        font-weight: bold;
-        margin: 0 15px;
-        text-align: center;
-    }
-    
-    .color-picker{
-        align-self: center;
-        margin: 0 10px;
-        height: 50px;
-    }
-
-    .pen-range{
-        align-self: center;
-        margin: 0 10px;
-    }
+/* Style for the centered box */
+.drawingCanvas {
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    width: 60%; /* Adjust as needed */
+    height: 60%; /* Adjust as needed */
+    display: block; /* Required for margin: auto to work */
+    margin: 10% auto; /* 10% margin at the top and bottom, auto on the sides */
+}

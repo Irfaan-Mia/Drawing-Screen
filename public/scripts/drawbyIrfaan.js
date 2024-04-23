@@ -1,9 +1,10 @@
 const canvas = document.getElementById('drawingCanvas');
 
+console.log(canvas.offsetHeight)
 //set the heigh and width of the canvas object 
 //Ajust the sizing as wanted but currently it will change when the size of the page changes
-canvas.width = window.innerWidth*0.8; 
-canvas.height = window.innerHeight*0.8; 
+canvas.width = window.innerWidth * 0.8;  // 80% of the viewport width
+canvas.height = window.innerHeight * 0.8; 
 
 //Require setting the context 
 var ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -20,23 +21,11 @@ drawingShape = 'round'; //Can be dynamically changed to allow different drawing 
 //Detemine if the user is drawing or not
 let isDrawing = false;   
 
-//Different pen style to be implemented
-let isSprayCan = false; 
-let isPen = true;  //Allow user to draw initially when loading the screen 
-let isHighlighter = false; 
-let isEraser = false; 
-
-
 //Initialize aspects of drawing style and drawing size
 ctx.strokeStyle = drawingColor; 
 ctx.lineWidth = lineWidth;  
 ctx.lineCap = drawingShape;
-//reduce interuption between drawing
 ctx.lineJoin = drawingShape;
-
-//Array for strokes so undo function can be utilized
-let restoreStrokes = [];
-let index = -1; 
 
     //Events of either using drawing or not 
 
@@ -46,7 +35,15 @@ canvas.addEventListener('mousedown', (event)=>{
     rect = canvas.getBoundingClientRect();
     isDrawing = true;
     ctx.beginPath();
-    ctx.moveTo(event.clientX - rect.left,event.clientY-rect.top);
+
+        // Calculate the scale factor
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+    
+        // Adjust the mouse position by the scale factor
+        const x = (event.clientX - rect.left) * scaleX;
+        const y = (event.clientY - rect.top) * scaleY;
+    ctx.moveTo(x,y);
 
     //Prevents defaults changes from happening. reduced offset away from the mouse due to prevention of default sizes 
     event.preventDefault();
@@ -58,8 +55,6 @@ canvas.addEventListener('mousedown', (event)=>{
 //Need an event listener to stop the drawing
 canvas.addEventListener('mouseup', ()=>{
     isDrawing = false; 
-    restoreStrokes.push(ctx.getImageData(0, 0, canvas.width, canvas.height));
-    index += 1; 
     //Close the path that we began when we started drawing
     ctx.closePath();
 });
@@ -77,7 +72,10 @@ canvas.addEventListener('mouseleave', ()=>{
 function draw(event)
 {
     //If the user isnt draw dont execute rest of the function 
-    if(!isDrawing){return;}
+    if(!isDrawing)
+    {
+        return;
+    }
 
     //Ensure most recent drawing parameters are being used
     ctx.lineWidth = lineWidth;
@@ -87,137 +85,15 @@ function draw(event)
     //So the spray can will also change color
     //Have to use incase user does not refresh the page when they resize the page
     rect = canvas.getBoundingClientRect();
-    //Track the movement of the mouse relative to the canvas 
-    if(isPen)
-    {
-        penDrawing(event);
-    }   
-    else if(isEraser)
-    {
-        eraserDrawing(event);
-    }
-    else if (isHighlighter)
-    {
-        highlighterDrawing(event);
-    }
-    else if(isSprayCan)
-    {
-        sprayCanDrawing(event);
-    }
-};
-
-//Functions for different types of drawing 
-
-function penDrawing(event){
-    ctx.lineTo(event.clientX - rect.left,event.clientY-rect.top);
+            // Calculate the scale factor
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+        
+            // Adjust the mouse position by the scale factor
+            const x = (event.clientX - rect.left) * scaleX;
+            const y = (event.clientY - rect.top) * scaleY;
+    ctx.lineTo(x,y);
     ctx.stroke();
 };
 
-function eraserDrawing(event){
-    ctx.lineTo(event.clientX - rect.left,event.clientY-rect.top);
-    ctx.stroke();
-};
 
-function sprayCanDrawing(event)
-{
-    rect = canvas.getBoundingClientRect();
-    // Draw multiple small dots in a random pattern around the cursor position
-    const density = 50; // adjust this value to change the density of the spray
-    for (let i = 0; i < density; i++) {
-        const x = event.clientX - rect.left;
-        const y = event.clientY - rect.top;
-        const offsetX = Math.random() * lineWidth*5 - 10; // adjust these values to change the spread of the spray
-        const offsetY = Math.random() * lineWidth*5 - 10;
-        ctx.fillRect(x + offsetX, y + offsetY, 1, 1);
-    }
-};
-
-function highlighterDrawing(event){
-    ctx.lineTo(event.clientX - rect.left,event.clientY-rect.top);
-    ctx.stroke();
-};
-
-//Fucntions for changing the color based on predefined set of colors 
-function changeColor(element)
-{
-    drawingColor = element.style.background;
-}
-
-//Change color based on the value the user chooses
-function changeColorPicker(value)
-{
-    drawingColor = value;
-}
-
-//Allow changes of line size
-function changeLineWidth(value)
-{
-   lineWidth = value; 
-}
-
-//Clear the canvas 
-function clearCanvas()
-{
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    restoreStrokes = [];
-    index = -1; 
-}
-
-function highlighter()
-{
-    drawingColor = 'yellow';
-    drawingShape = 'square';
-    isEraser = false;
-    isPen = false;
-    isHighlighter =true; 
-    isSprayCan = false;
-}
-
-//Set the eraser 
-function eraser()
-{
-    drawingColor = "white";
-    drawingShape = 'round';
-    isEraser = true;
-    isPen = false;
-    isHighlighter =false; 
-    isSprayCan = false;
-}
-
-//Set the sprayCan in use
-function sprayCan()
-{
-    drawingColor = 'black';
-    drawingShape = 'round';
-    isSprayCan = true; 
-    isPen = false; 
-    isEraser =false; 
-    isHighlighter = false; 
-}
-
-//Set the pen in use
-function pen()
-{
-    drawingColor = 'black';
-    drawingShape = 'round';
-    isPen = true;
-    isSprayCan = false;
-    isHighlighter = false;
-    isEraser = false;
-}
-
-//Allow for undo function
-function undoDrawing()
-{
-    if(index <= 0)
-    {
-        clearCanvas();
-    }
-    else
-    {
-        index -= 1;
-        restoreStrokes.pop();
-        ctx.putImageData(restoreStrokes[index],0,0);
-    }
-}
