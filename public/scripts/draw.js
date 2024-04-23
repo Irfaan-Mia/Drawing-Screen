@@ -1,20 +1,20 @@
-const canvas = document.getElementById('drawingCanvas');
+const canvas = document.getElementById('drawing-canvas');
 
 // Allow for different screen size scaling
 canvas.width = canvas.offsetWidth;  
 canvas.height = canvas.offsetHeight; 
 
 // Require setting the context of canvas and frequent storage of users drawings 
-var ctx = canvas.getContext('2d', { willReadFrequently: true });
+let ctx = canvas.getContext('2d', { willReadFrequently: true });
 
 // Initialization of canvas 
 ctx.fillStyle = 'white';
 ctx.fillRect(0,0,canvas.width,canvas.height);
 
 //Intialization of drawing style and drawing size and methods 
-drawingColor = "black"; 
-lineWidth = 5;      
-drawingShape = 'round';
+let drawingColor = "black"; 
+let lineWidth = 5;      
+let drawingShape = 'round';
 let isDrawing = false;   
 
 // Initialize canvas with default parameters 
@@ -56,12 +56,13 @@ function draw(event)
     {
         return;
     }
+    updateDrawingParameters();
     ctx.lineTo(event.offsetX,event.offsetY);
     ctx.stroke();
 };
 
 // Update parameters for drawing to allow for future improvements 
-function updateDrawingParameter()
+function updateDrawingParameters()
 {
     ctx.lineWidth = lineWidth;
     ctx.lineCap = drawingShape;

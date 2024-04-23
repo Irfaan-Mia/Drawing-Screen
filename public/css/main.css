@@ -1,34 +1,39 @@
 /* Defining of gray color palette as constants */
 :root {
-    --gray-light: #f3f3f3;
-    --gray-dark: #dcdcdc;
     --gray-button: #6c757d;
+    --gray-dark: #dcdcdc;
+    --gray-light: #f3f3f3;
 }
 
 /* Set up of a dynamic gradient background of grays */
+/* The body is set to take up at least the full viewport height and center its children horizontally. */
 body {
+    align-items: center;
     background: linear-gradient(45deg, var(--gray-light), var(--gray-dark));
-    margin: 0;
-    padding: 0;
-    min-height: 100vh; /* Ensure the body takes up at least the full viewport height */
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+    padding: 0;
 }
 
+/* The .canvas-container class is applied to the container that wraps the title and the canvas. */
 .canvas-container {
+    align-items: center;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 5vh auto; /* 10% margin at the top and bottom, auto on the sides */
+    margin: 5vh auto;
 }
 
-.canvas-container .titleDrawing{
-    margin: 5vh auto; /* 10% margin at the top and bottom, auto on the sides */
+/* The .title-drawing class applies styles to the title. */
+.canvas-container .title-drawing{
+    margin: 5vh auto;
 }
-.canvas-container .drawingCanvas {
-    width: 60vw; /* Adjust as needed */
-    height: 70vh; /* Adjust as needed */
+
+/* The .drawing-canvas class applies styles to the canvas. */
+.canvas-container .drawing-canvas {
+    height: 70vh;
+    width: 60vw;
 }
