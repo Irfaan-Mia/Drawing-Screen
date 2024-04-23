@@ -3,6 +3,7 @@
     --gray-button: #6c757d;
     --gray-dark: #dcdcdc;
     --gray-light: #f3f3f3;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Set up of a dynamic gradient background of grays */
@@ -50,6 +51,7 @@ body {
     margin-bottom: 0.1vh; /* This will add space below each .row */
     margin-right: 1vw; /* This will add space to the right of each .row */
     padding: 0.5vh; /* This will add space inside each .row */
+    cursor: pointer;
 }
 
  .row .options{
@@ -61,24 +63,63 @@ body {
     height:1.5vh; 
 }
 
-.btns{
+.color-options{
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    gap: 0.5vw;
+    justify-content: center;
+    list-style: none;
+    max-width: 90%;
+    margin-left: -1vw;
+}
+
+.color-option{
+    display: flex;
+    flex-direction: column; /* This will make the .btn-color-field and input elements sit in a column */
+    gap: 0.1vw;
+    justify-content: center;
+    list-style: none;
+}
+
+input[type='color'] {
+    width: 100%; /* This will put the input element on a new line */
+}
+
+.btn-color-field{
+    width:1.5vw;
+    height:2vh;
+}
+
+
+.btns{
+    padding: 1vh; 
+    margin: 1vh auto;
+    display: flex;
+    flex-direction: column;
+    gap:1vh;
 }
 
 .btn{
-    width: 5vw;
-    height: 3vh;
+    width: 8vw;
+    height: 4vh;
+}
+
+.btn:hover {
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
 }
 
 .tool-box .row .options .tool-option{
     margin: 1.5vh auto; 
-    cursor: pointer;
 }
 
 .tool-option:is(:hover, .active) img{
     filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
 }
+
+.shape-option:is(:hover, .active) img{
+    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
+}
+
 .tool-box .row .options .shape-option{
     margin: 1.5vh auto; 
 }

@@ -54,15 +54,14 @@
             </div>
             <div class = 'row'>
                 <label class = 'tool-color'>Color Selection:</label>
-                <ul class = 'options'>
-                    <li class = 'color-option'>Black</li>
-                    <li class = 'color-option'>Red</li>
-                    <li class = 'color-option'>Blue</li>
-                    <li class = 'color-option'>Green</li>
-                    <lis class = 'color-option'>
-                        <input type = 'color' class = "color-option">
-                    </lis>
+                <ul class = 'color-options'>
+                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: black;'></div></li>
+                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: red;'></div></li>
+                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: green;'></div></li>
+                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: blue;'></div></li>
+                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: purple;'></div></li>
                 </ul>
+                <input type = 'color' class = "color-option">
             </div>
             <div class = 'row'>
                 <ul class = "btns">
