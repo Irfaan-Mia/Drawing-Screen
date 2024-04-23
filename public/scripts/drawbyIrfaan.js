@@ -3,8 +3,8 @@ const canvas = document.getElementById('drawingCanvas');
 console.log(canvas.offsetHeight)
 //set the heigh and width of the canvas object 
 //Ajust the sizing as wanted but currently it will change when the size of the page changes
-canvas.width = window.innerWidth * 0.8;  // 80% of the viewport width
-canvas.height = window.innerHeight * 0.8; 
+canvas.width = window.innerWidth;  
+canvas.height = window.innerHeight; 
 
 //Require setting the context 
 var ctx = canvas.getContext('2d', { willReadFrequently: true });
@@ -36,13 +36,15 @@ canvas.addEventListener('mousedown', (event)=>{
     isDrawing = true;
     ctx.beginPath();
 
-        // Calculate the scale factor
-        const scaleX = canvas.width / rect.width;
-        const scaleY = canvas.height / rect.height;
+    // Calculate the scale factor
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
     
-        // Adjust the mouse position by the scale factor
-        const x = (event.clientX - rect.left) * scaleX;
-        const y = (event.clientY - rect.top) * scaleY;
+    // Adjust the mouse position by the scale factor
+    const x = (event.clientX - rect.left) * scaleX;
+    const y = (event.clientY - rect.top) * scaleY;
+    console.log(event.clientX + " " + event.clientY);
+    console.log(x + " " + y);
     ctx.moveTo(x,y);
 
     //Prevents defaults changes from happening. reduced offset away from the mouse due to prevention of default sizes 
@@ -85,13 +87,13 @@ function draw(event)
     //So the spray can will also change color
     //Have to use incase user does not refresh the page when they resize the page
     rect = canvas.getBoundingClientRect();
-            // Calculate the scale factor
-            const scaleX = canvas.width / rect.width;
-            const scaleY = canvas.height / rect.height;
+    // Calculate the scale factor
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
         
-            // Adjust the mouse position by the scale factor
-            const x = (event.clientX - rect.left) * scaleX;
-            const y = (event.clientY - rect.top) * scaleY;
+    // Adjust the mouse position by the scale factor
+    const x = (event.clientX - rect.left) * scaleX;
+    const y = (event.clientY - rect.top) * scaleY;
     ctx.lineTo(x,y);
     ctx.stroke();
 };
