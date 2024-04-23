@@ -1,95 +1,70 @@
 const canvas = document.getElementById('drawingCanvas');
 
-// Adjust size to css values for size of the view port
+// Allow for different screen size scaling
 canvas.width = canvas.offsetWidth;  
 canvas.height = canvas.offsetHeight; 
 
-//Require setting the context 
+// Require setting the context of canvas and frequent storage of users drawings 
 var ctx = canvas.getContext('2d', { willReadFrequently: true });
 
-//initialization of canvas 
+// Initialization of canvas 
 ctx.fillStyle = 'white';
 ctx.fillRect(0,0,canvas.width,canvas.height);
 
 //Intialization of drawing style and drawing size and methods 
-drawingColor = "black"; //Can be dynamically changed when change happens to color 
-lineWidth = 5;       //Can easily be dynamically changed to allow different drawing styles 
-drawingShape = 'round'; //Can be dynamically changed to allow different drawing shapes
-
-//Detemine if the user is drawing or not
+drawingColor = "black"; 
+lineWidth = 5;      
+drawingShape = 'round';
 let isDrawing = false;   
 
-//Initialize aspects of drawing style and drawing size
+// Initialize canvas with default parameters 
 ctx.strokeStyle = drawingColor; 
 ctx.lineWidth = lineWidth;  
 ctx.lineCap = drawingShape;
 ctx.lineJoin = drawingShape;
 
-    //Events of either using drawing or not 
-
-//Need an event listner to start the drawing 
+  
+// Start drawing if user clicks M1 key 
 canvas.addEventListener('mousedown', (event)=>{
-    //Have to use it here incase user resizes the page without refreshing it
-    rect = canvas.getBoundingClientRect();
     isDrawing = true;
     ctx.beginPath();
-    
-    // Adjust the mouse position by the scale factor
-    const x = (event.clientX - rect.left) 
-    const y = (event.clientY - rect.top) 
-    console.log(event.clientX + " " + event.clientY);
-    console.log(x + " " + y);
-    ctx.moveTo(x,y);
-
-    //Prevents defaults changes from happening. reduced offset away from the mouse due to prevention of default sizes 
-    event.preventDefault();
-
-    //Allows for the case where the user doesnt move but clicks to make a dot on the screen
+    ctx.moveTo(event.offsetX,event.offsetY); // Move to current position of users cursor 
+    event.preventDefault();      // Reduces offset of drawing and mouse 
     draw(event);
 });
 
-//Need an event listener to stop the drawing
+// Stop drawing if user releases M1 key
 canvas.addEventListener('mouseup', ()=>{
     isDrawing = false; 
-    //Close the path that we began when we started drawing
     ctx.closePath();
 });
 
-//Need an event listener to track the movement of the mouse 
+// Track movement of user's cursor when moving 
 canvas.addEventListener('mousemove',draw);
 
-//Need an event listener to check if the user is moving internally to the canvas if the user is not moving in the canvas set drawing to false. 
+// Check if user is moving inside the canvas 
 canvas.addEventListener('mouseleave', ()=>{
     isDrawing = false;
     ctx.closePath();
 });
 
-//Need a function for drawing 
+// Draw stroke lines when user has M1 key pressed 
 function draw(event)
 {
-    //If the user isnt draw dont execute rest of the function 
+    // If the user isnt drawing dont execute rest of the function 
     if(!isDrawing)
     {
         return;
     }
+    ctx.lineTo(event.offsetX,event.offsetY);
+    ctx.stroke();
+};
 
-    //Ensure most recent drawing parameters are being used
+// Update parameters for drawing to allow for future improvements 
+function updateDrawingParameter()
+{
     ctx.lineWidth = lineWidth;
     ctx.lineCap = drawingShape;
     ctx.strokeStyle = drawingColor;
     ctx.fillStyle = drawingColor;
-    //So the spray can will also change color
-    //Have to use incase user does not refresh the page when they resize the page
-    rect = canvas.getBoundingClientRect();
-    // Calculate the scale factor
-    const scaleX = canvas.width / rect.width;
-    const scaleY = canvas.height / rect.height;
-        
-    // Adjust the mouse position by the scale factor
-    const x = (event.clientX - rect.left) 
-    const y = (event.clientY - rect.top)
-    ctx.lineTo(x,y);
-    ctx.stroke();
-};
-
-
+}
