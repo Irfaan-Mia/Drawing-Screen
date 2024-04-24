@@ -17,6 +17,7 @@ body {
     margin: 0;
     min-height: 100vh;
     padding: 0;
+    font-size: 1vw;
 }
 
 /* The .title-drawing class applies styles to the title. */
@@ -48,21 +49,13 @@ body {
 }
 
 .tool-box .row{
-    margin-bottom: 0.1vh; /* This will add space below each .row */
     margin-right: 1vw; /* This will add space to the right of each .row */
-    padding: 0.5vh; /* This will add space inside each .row */
     cursor: pointer;
 }
 
 .row .options{
     list-style: none;
     padding: 1em; /* Use em for padding */
-}
-
-@media (max-width: 600px) {
-    .row .options {
-        padding: 0.5em; /* Reduce padding at smaller screen sizes */
-    }
 }
 .svg{
     width: 1.5vw;
