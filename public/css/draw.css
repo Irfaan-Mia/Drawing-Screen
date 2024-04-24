@@ -65,9 +65,9 @@ body {
     height:10%; 
 }
 
-.tool-option
-{
-    max-width: 80%; 
+input[type='range'] {
+    width: 80%;
+    margin: auto; /* This will center the input element */
 }
 
 .color-options{
