@@ -59,18 +59,24 @@ body {
     list-style: none;
     padding: 1%; /* Use em for padding */
 }
+
 .svg{
     width: 10%;
     height:10%; 
 }
 
+.tool-option
+{
+    max-width: 80%; 
+}
+
 .color-options{
     display: flex;
     flex-direction: row;
-    gap: 0.5vw;
-    justify-content: center;
+    gap: 1%;
+    justify-content: space-between;
     list-style: none;
-    max-width: 20%;
+    max-width: 40%;
 }
 
 .color-option{
