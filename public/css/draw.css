@@ -49,17 +49,19 @@ body {
 }
 
 .tool-box .row{
-    margin-right: 1vw; /* This will add space to the right of each .row */
+    margin-left: 10%; /* This will add space to the left of each .row */
+    margin-top: 10%;
+    margin-bottom: 10%;
     cursor: pointer;
 }
 
 .row .options{
     list-style: none;
-    padding: 1em; /* Use em for padding */
+    padding: 1%; /* Use em for padding */
 }
 .svg{
-    width: 1.5vw;
-    height:1.5vh; 
+    width: 10%;
+    height:10%; 
 }
 
 .color-options{
@@ -68,8 +70,7 @@ body {
     gap: 0.5vw;
     justify-content: center;
     list-style: none;
-    max-width: 90%;
-    margin-left: -12%;
+    max-width: 20%;
 }
 
 .color-option{
