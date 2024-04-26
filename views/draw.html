@@ -1,80 +1,129 @@
+<!-- HTML document declaration -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Meta tags for character set and viewport -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link to external CSS files -->
     <link rel="stylesheet" href="/cdn/css/draw.css">
-    <title id = "titleDrawing">Miscommunication Mayhem Drawing:</title>
+    <link rel="stylesheet" href="/cdn/css/main.css">
+    <!-- Title of the document -->
+    <title id="titleDrawing">Miscommunication Mayhem Drawing:</title>
 </head>
 <body class="body">
-    <h1 id = "title-drawing">Miscommunication Mayhem</h1>
-    <div class = 'canvas-container'>
-        <section class = 'tool-box'>
-            <div class = 'row'>
-                <label class = 'title'>Tool Selection:</label>
-                <ul class = 'options'>
-                    <li class = 'tool-option'>
-                        <img class = "svg" src="../cdn/images/pen.svg" alt="">
+    <!-- Container for canvas -->
+    <div class='canvas-container'>
+        <!-- Section for tool selection -->
+        <section class='tool-box' id = 'tool-box'>
+            <!-- Row for tool options -->
+            <div class='row'>
+                <!-- Label for tool selection -->
+                <label class='title'>Tool Selection:</label>
+                <!-- List of tool options -->
+                <ul class='options'>
+                    <!-- Tool option: Pen -->
+                    <li class='tool-option'>
+                        <!-- Icon for pen -->
+                        <img class="svg" id = 'pen-option' src="../cdn/images/pen.svg" alt="">
+                        <!-- Label for pen -->
                         <span>Pen</span>
                     </li>
-                    <li class = 'tool-option'>
-                        <img class = "svg" src="../cdn/images/eraser.svg" alt="">
+                    <!-- Tool option: Eraser -->
+                    <li class='tool-option'>
+                        <!-- Icon for eraser -->
+                        <img class="svg" id = 'eraser-option' src="../cdn/images/eraser.svg" alt="">
+                        <!-- Label for eraser -->
                         <span>Eraser</span>
                     </li>
-                    <li class = 'tool-option'>
-                        <img class = "svg" src="../cdn/images/paint-format.svg" alt="">
+                    <!-- Tool option: Highlighter -->
+                    <li class='tool-option'>
+                        <!-- Icon for highlighter -->
+                        <img class="svg" id = 'highlighter-option' src="../cdn/images/paint-format.svg" alt="">
+                        <!-- Label for highlighter -->
                         <span>Highlighter</span>
                     </li>
-                    <li class = 'tool-option'>
-                        <img class = "svg" src="../cdn/images/magic-wand.svg" alt="">
+                    <!-- Tool option: SprayCan -->
+                    <li class='tool-option'>
+                        <!-- Icon for spray can -->
+                        <img class="svg" id = 'spraycan-option' src="../cdn/images/magic-wand.svg" alt="">
+                        <!-- Label for spray can -->
                         <span>SprayCan</span>
                     </li>
-                    <label class = 'title'>Size Selection: </label>
-                    <li class = 'tool-option'>
-                        <input type = 'range' id = 'drawing-size-input' min = '1' max = '100' value = '5'>
+                    <!-- Label for size selection -->
+                    <label class='title'>Size Selection: </label>
+                    <!-- Input for size selection -->
+                    <li class='tool-option'>
+                        <input type='range' id='drawing-size-input' min='1' max='100' value='5'>
                     </li>
                 </ul>
             </div>
-            <div class = 'row'>
-                <label class = 'title'>Shape selection:</label>
-                    <ul class = 'options'>
-                        <li class = 'shape-option'>
-                            <img class = "svg" src="../cdn/images/circle.svg" alt="">
-                            <span>Circle</span>
-                        </li>
-                        <li class = 'shape-option'>
-                            <img class = "svg" src="../cdn/images/rectangle.svg" alt="">
-                            <span>Rectangle</span>
-                        </li>
-                        <li class = 'shape-option'>
-                            <img class = "svg" src="../cdn/images/triangle.svg" alt="">
-                            <span>Triangle</span>
-                        </li>
-                    </ul>
-            </div>
-            <div class = 'row'>
-                <label class = 'tool-color'>Color Selection:</label>
-                <ul class = 'options color-options'>
-                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: red;'></div></li>
-                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: green;'></div></li>
-                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: blue;'></div></li>
-                    <li><div onClick = "changeColor(this)" class = 'btn-color-field', style = 'background: purple;'></div></li>
+            <!-- Row for shape selection -->
+            <div class='row'>
+                <!-- Label for shape selection -->
+                <label class='title'>Shape selection:</label>
+                <!-- List of shape options -->
+                <ul class='options'>
+                    <!-- Shape option: Circle -->
+                    <li class='shape-option'>
+                        <!-- Icon for circle -->
+                        <img class="svg" id = 'circle-shape-option' src="../cdn/images/circle.svg" alt="">
+                        <!-- Label for circle -->
+                        <span>Circle</span>
+                    </li>
+                    <!-- Shape option: Rectangle -->
+                    <li class='shape-option'>
+                        <!-- Icon for rectangle -->
+                        <img class="svg" id = 'rectangel-shape-option' src="../cdn/images/rectangle.svg" alt="">
+                        <!-- Label for rectangle -->
+                        <span>Rectangle</span>
+                    </li>
+                    <!-- Shape option: Triangle -->
+                    <li class='shape-option'>
+                        <!-- Icon for triangle -->
+                        <img class="svg" id = 'traingle-shape-option' src="../cdn/images/triangle.svg" alt="">
+                        <!-- Label for triangle -->
+                        <span>Triangle</span>
+                    </li>
                 </ul>
-                <input type = 'color' class = "color-option">
             </div>
-            <div class = 'row'>
-                <ul class = "options">
-                    <button class = 'btn' id ='clear-canvas'>Clear</button>
-                    <button class = 'btn' id = 'undo-canvas'>Undo</button>
+            <!-- Row for color selection -->
+            <div class='row'>
+                <!-- Label for color selection -->
+                <label class='tool-color'>Color Selection:</label>
+                <!-- List of color options -->
+                <ul class='options color-options'>
+                    <!-- Color option: Red -->
+                    <li><div onClick="changeColor(this)" id = 'red-color-option' class='btn-color-field' style='background: red;'></div></li>
+                    <!-- Color option: Green -->
+                    <li><div onClick="changeColor(this)" id = 'green-color-option' class='btn-color-field' style='background: green;'></div></li>
+                    <!-- Color option: Blue -->
+                    <li><div onClick="changeColor(this)" id = 'blue-color-option' class='btn-color-field' style='background: blue;'></div></li>
+                    <!-- Color option: Purple -->
+                    <li><div onClick="changeColor(this)" id = 'purple-color-option' class='btn-color-field' style='background: purple;'></div></li>
+                </ul>
+                <!-- Input for color selection -->
+                <input type='color' class="color-option">
+            </div>
+            <!-- Row for buttons -->
+            <div class='row'>
+                <!-- List of buttons -->
+                <ul class="options">
+                    <!-- Button to clear canvas -->
+                    <button class='btn' id='clear-canvas-button'>Clear</button>
+                    <!-- Button to undo canvas -->
+                    <button class='btn' id='undo-canvas-button'>Undo</button>
                 </ul>
             </div>
         </section>
-        <section class = 'drawing-board'>
-            <canvas class = 'drawing-canvas' id="drawing-canvas"></canvas>
+        <!-- Section for drawing board -->
+        <section class='drawing-board'>
+            <!-- Canvas for drawing -->
+            <canvas class='drawing-canvas' id="drawing-canvas"></canvas>
         </section>
     </div>
-     
 
+    <!-- Link to external JavaScript file -->
     <script src="/cdn/scripts/draw.js"></script>
 </body>
 </html>

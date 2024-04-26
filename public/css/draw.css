@@ -1,137 +1,132 @@
-/* Defining of gray color palette as constants */
-:root {
-    --gray-button: #6c757d;
-    --gray-dark: #dcdcdc;
-    --gray-light: #f3f3f3;
-    font-family: 'Poppins', sans-serif;
-}
-
 /* Set up of a dynamic gradient background of grays */
 /* The body is set to take up at least the full viewport height and center its children horizontally. */
 body {
     align-items: center;
-    background: linear-gradient(45deg, var(--gray-light), var(--gray-dark));
+    background: linear-gradient(45deg, var(--gray-dark), var(--gray-light)); /* alphabetic order */
     display: flex;
     flex-direction: column;
+    font-size: 1vw;
     justify-content: center;
     margin: 0;
     min-height: 100vh;
     padding: 0;
-    font-size: 1vw;
-}
-
-/* The .title-drawing class applies styles to the title. */
-.title-drawing{
-    margin: 5vh auto;
-    justify-content: center;
 }
 
 /* The .canvas-container class is applied to the container that wraps the title and the canvas. */
 .canvas-container {
-    align-items: center;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
-    gap: 1vw; 
     justify-content: center;
-    margin: 5vh auto;
+    margin: 5% auto;
 }
 
-.tool-box{
+/* The .drawing-canvas class applies styles to the canvas. */
+.canvas-container .drawing-canvas {
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    height: 75vh;
+    width: 65vw;
+}
+
+/* Styles for the tool box */
+.canvas-container .tool-box {
     background: white;
-    height: 75vh; 
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    flex: none;
+    height: 75vh;
+    margin-right: 1%;
+    margin-top: 0%;
     width: 10vw;
-    flex: none; 
-    border-radius: 7px;
-    box-shadow: 0 0 2vh black;
-    flex-direction: column;
 }
 
-.tool-box .row{
+/* Styles for the rows inside the tool box */
+.tool-box .row {
+    cursor: pointer;
+    margin-bottom: 10%;
     margin-left: 10%; /* This will add space to the left of each .row */
     margin-top: 10%;
-    margin-bottom: 10%;
-    width: 100%; 
-    cursor: pointer;
+    width: 100%;
 }
 
-.row .options{
+/* Styles for the options list */
+.row .options {
+    flex-direction: column;
     list-style: none;
     padding: 1%; /* Use em for padding */
-    flex-direction: column;
 }
 
-.options li, .color-options li {
-    margin-right: 5%;
+/* Margin for options and color options */
+.color-options li,
+.options li {
     margin-bottom: 5%;
-  }
+    margin-right: 5%;
+}
 
-.svg{
+/* SVG styling */
+.svg {
+    height: 10%;
     width: 10%;
-    height:10%; 
 }
 
+/* Styling for range input */
 input[type='range'] {
-    width: 80%;
     margin: auto; /* This will center the input element */
+    width: 80%;
 }
 
+/* Styling for color input */
 input[type='color'] {
     width: 80%; /* This will put the input element on a new line */
 }
 
+/* Flex display for color options */
 .options.color-options {
     display: flex;
     flex-direction: row;
-  }
-
-.btn-color-field{
-    width:1.5vw;
-    height:2vh;
-    border-radius: 10px;
 }
 
+/* Styling for color field button */
+.btn-color-field {
+    border-radius: 10px;
+    height: 2vh;
+    width: 1.5vw;
+}
 
-.btns{
+/* Styles for button container */
+.btns {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    max-width: 100%; 
     margin-left: -30%;
+    max-width: 100%;
 }
 
-.btn{
-    width: 8vw; 
-    height: 5vh;
+/* Styles for buttons */
+.btn {
+    background-color: #0E7EFB;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    height: 50px;
     margin-bottom: 10%;
+    transition: background-color 0.3s ease-in-out; /* Transition for button background-color */
+    width: 80%;
 }
 
-
-
+/* Hover effect for buttons */
 .btn:hover {
     cursor: pointer; /* Changes the cursor to a pointer when hovering over the button */
 }
 
-
-.tool-option:is(:hover, .active) img{
-    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
+/* Styling for tool options and shapes when hovered or active */
+.shape-option:is(:hover, .active) img,
+.tool-option:is(:hover, .active) img {
+    filter: brightness(100%) hue-rotate(900deg) invert(17%) saturate(3000%) sepia(90%);
 }
 
-.shape-option:is(:hover, .active) img{
-    filter: invert(17%) sepia(90%) saturate(3000%) hue-rotate(900deg) brightness(100%)
-}
-
-
-
-.drawing-board{
-    flex-grow: 1; 
-}
-
-
-/* The .drawing-canvas class applies styles to the canvas. */
-.canvas-container .drawing-canvas {
-    height: 75vh;
-    width: 65vw;
-    border-radius: 7px;
-    background-color: black;
+/* Styling for the drawing board */
+.drawing-board {
+    flex-grow: 1;
 }
