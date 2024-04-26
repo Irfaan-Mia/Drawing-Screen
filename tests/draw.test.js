@@ -188,3 +188,17 @@ test('User able to click pen tool', async ({page}) => {
 
   expect(strokeStyleColour).toBe('#0000ff');
 });
+
+
+test('User able to click eraser tool', async ({page}) => {
+  await page.goto('http://localhost:3000/class/draw');
+  await page.locator('li').filter({ hasText: 'Eraser' }).click();
+
+  let strokeStyleColour = await page.evaluate(() => {
+    const canvas = document.getElementById('drawing-canvas');
+    const ctx = canvas.getContext('2d');
+    return ctx.strokeStyle;
+  }); 
+
+  expect(strokeStyleColour).toBe('#ffffff');
+});
