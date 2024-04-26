@@ -110,7 +110,7 @@ input[type='color'] {
     border-radius: 5px;
     color: #fff;
     height: 5vh;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     transition: background-color 0.3s ease-in-out; /* Transition for button background-color */
     width: 80%;
 }
