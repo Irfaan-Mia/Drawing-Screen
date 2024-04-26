@@ -1,7 +1,6 @@
 {
   "name": "drawing-screen",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "jest --coverage"
@@ -13,5 +12,9 @@
   },
   "devDependencies": {
     "jest": "^29.7.0"
-  }
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "description": ""
 }
