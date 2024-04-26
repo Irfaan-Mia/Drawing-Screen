@@ -8,6 +8,7 @@
     <!-- Link to external CSS files -->
     <link rel="stylesheet" href="/cdn/css/draw.css">
     <link rel="stylesheet" href="/cdn/css/main.css">
+    
     <!-- Title of the document -->
     <title id="titleDrawing">Miscommunication Mayhem Drawing:</title>
 </head>
@@ -23,7 +24,7 @@
                 <!-- List of tool options -->
                 <ul class='options'>
                     <!-- Tool option: Pen -->
-                    <li class='tool-option'>
+                    <li class='tool-option' onClick = 'pen()'>
                         <!-- Icon for pen -->
                         <img class="svg" id = 'pen-option' src="../cdn/images/pen.svg" alt="">
                         <!-- Label for pen -->
@@ -122,7 +123,7 @@
             <canvas class='drawing-canvas' id="drawing-canvas"></canvas>
         </section>
     </div>
-
+    
     <!-- Link to external JavaScript file -->
     <script src="/cdn/scripts/draw.js"></script>
 </body>

@@ -175,3 +175,16 @@ test('User is capable of drawing on the drawing screen', async ({ page }) => {
   }
 });
 
+// Test to check if the user can click the pen tool 
+test('User able to click pen tool', async ({page}) => {
+  await page.goto('http://localhost:3000/class/draw');
+  await page.locator('li').filter({ hasText: 'Pen' }).click();
+
+  let strokeStyleColour = await page.evaluate(() => {
+    const canvas = document.getElementById('drawing-canvas');
+    const ctx = canvas.getContext('2d');
+    return ctx.strokeStyle;
+  }); 
+
+  expect(strokeStyleColour).toBe('#0000ff');
+});
