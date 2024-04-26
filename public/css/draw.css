@@ -58,6 +58,7 @@ body {
 .row .options{
     list-style: none;
     padding: 1%; /* Use em for padding */
+    flex-direction: column;
 }
 
 .options li, .color-options li {
@@ -75,31 +76,19 @@ input[type='range'] {
     margin: auto; /* This will center the input element */
 }
 
-.color-options{
-    display: flex;
-    flex-direction: row;
-    justify-content: center; 
-    list-style: none;
-    max-width: 50%;
-}
-
-.color-option{
-    display: flex;
-    flex-direction: column; /* This will make the .btn-color-field and input elements sit in a column */
-    gap: 0.1vw;
-    justify-content: center;
-    list-style: none;
-}
-
 input[type='color'] {
     width: 80%; /* This will put the input element on a new line */
 }
+
+.options.color-options {
+    display: flex;
+    flex-direction: row;
+  }
 
 .btn-color-field{
     width:1.5vw;
     height:2vh;
     border-radius: 10px;
-    border-color: white;
 }
 
 
@@ -107,7 +96,7 @@ input[type='color'] {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%; 
+    max-width: 100%; 
     margin-left: -30%;
 }
 
